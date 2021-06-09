@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>BMI Calculator</title>
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        font-family: Lato;
+        background-image: url(resources/css/img/bmi.jpg);
+        background-size: cover;
+        min-height: 100vh;
+        opacity: 1;
+      }
+
+      .bmiTable {
+        width: 300px;
+        height: 300px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background-color: rgba(0, 0, 0, 0.568);
+        transform: translate(-50%, -50%);
+        padding: 20px;
+        border-radius: 50px;
+        box-shadow: 2px 2px 22px #fff;
+      }
+
+      h2 {
+        font-size: px;
+        letter-spacing: 1px;
+        background-color: #e67d22f5;
+        border-radius: 100px;
+      }
+
+      .text {
+        margin-top: 5px;
+        font-size: 12px;
+        text-align: center;
+        margin-left: 15px;
+        background-color: #e67d22f5;
+        width: 40px;
+        opacity: 0.9;
+        border-radius: 50px;
+      }
+
+      #h,
+      #w {
+        text-align: center;
+        font-size: 100%;
+        font-weight: 200;
+        outline: none;
+        border: none;
+        background: none;
+        border-bottom: 2px solid #e67e22;
+        width: 100px;
+        transition: 0.8s;
+        color: rgba(245, 245, 245, 0.842);
+      }
+
+      #h:focus,
+      #w:focus {
+        border-bottom: 2px solid #e67e22;
+        width: 150px;
+      }
+
+      #btnBmi {
+        margin-top: 10px;
+        font-size: 12px;
+        font-weight: 300;
+        background-color: #e67e22;
+        text-decoration: none;
+        border-radius: 20px;
+        padding: 2px;
+        transition: color 2s;
+      }
+
+      #btnBmi:hover {
+        background-color: black;
+        color: #e67e22;
+      }
+
+      #infoBmi {
+        font-size: 12px;
+        color: #888;
+      }
+
+      #resultBmi {
+        color: rgba(245, 245, 245, 0.842);
+        padding-top: 10px;
+        paddint-bottom: 10px;
+      }
+    </style>
+    <script type="text/javascript">
+      function BMI() {
+        const h = document.getElementById("h").value;
+        const w = document.getElementById("w").value;
+
+        const result = w / (((h / 100) * h) / 100);
+        const resultFixed = result.toFixed(2);
+        document.getElementById("resultBmi").innerHTML =
+          "Your BMI is" + " " + resultFixed;
+      }
+    </script>
+  </head>
+  <body>
+    <div class="bmiTable">
+      <h2>BMI Calculator</h2>
+      <p class="text">Height</p>
+      <input type="text" id="h" />
+      <p class="text">Weight</p>
+      <input type="text" id="w" />
+      <p id="resultBmi"></p>
+      <button id="btnBmi" onclick="BMI()">Calculate</button>
+      <p id="infoBmi">Please enter height [cm] and weight [kg].</p>
+    </div>
+  </body>
+</html>
